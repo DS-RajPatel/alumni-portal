@@ -1,0 +1,76 @@
+<%- include('../header'); -%>
+<%- include('../sidebar'); -%>
+ 
+<link rel="stylesheet" href="css/pagination.css">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      List Of Program
+    </h1>
+   
+
+  </section>
+    <div class="row" id="my-div">
+      <div class="col">
+        <div class="box">
+
+          <!-- /.box-header -->
+          <div class="box-body table-responsive">
+
+            <table class="table table-hover">
+              <tr> 
+                 <form action="#" method="get" class="sidebar-form">
+          <div class="input-group" style="margin-left: 15px">
+            <input type="text" name="Search" placeholder="Search...">
+            
+            <input type="submit" value="Search" id="search-btn" class="btn btn-flat">
+                  
+                  </button>
+           
+          </div>
+        </form>
+              </tr>
+              <tr>
+                <th></th>
+                <th>Name Of Program</th>
+                <th>Action</th>
+
+              </tr>
+
+              <%
+              if(program1.length > 0){
+                  for(let i=0;i<program1.length;i++){
+                    %> 
+                    <tr>
+                      <td><%= [i+1] %></td>
+                      <td><%= program1[i].program_name %></td>
+                      <td> <a href="/program_delete?id=<%= program1[i]._id %>"> 
+                        <i class="fa fa-trash" style="color: red; font-size:20px;" aria-hidden="true"></i></a></td>
+                    </tr>
+                    <% 
+                  }
+                }
+              else
+              {
+              %>
+              <tr>
+                <td colspan="2"> Program Not found</td>
+              </tr>
+              <% } %>
+       
+
+            </table>  
+
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+        <ul class="pagination">
+          <% for(let j = 1; j <= totalpage; j++ ){ %>
+          <li>  <a href="?page=<%= j %>"><%= j %></a></li>
+          <%
+          } %>
+        </ul>
+      </div>

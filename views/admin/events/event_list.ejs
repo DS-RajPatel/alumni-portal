@@ -1,0 +1,95 @@
+<%- include('../header'); -%>
+<%- include('../sidebar'); -%>
+<link rel="stylesheet" href="css/pagination.css">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Event List
+    
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+
+          <table class="table table-hover">
+            <tr> 
+              <form action="#" method="get" class="sidebar-form">
+       <div class="input-group" style="margin-left: 15px">
+         <input type="text" name="Search" placeholder="Search...">
+         
+         <input type="submit" value="Search" id="search-btn" class="btn btn-flat">
+               
+               </button>
+        
+       </div>
+     </form>
+           </tr>
+           <tr>
+                <th></th>
+                      <th>Event Title</th>
+                      <th>Event Schedule</th>
+              <th>Event details</th>
+                  <th>Event program</th>
+                   
+                  <th>Event Post Date</th>
+                  <th>Action</th>
+
+
+            </tr>
+            <%
+            if(event.length > 0){
+                for(let i=0;i<event.length;i++){
+                  %> 
+                  <tr>
+                    <td><%= [i+1] %></td>
+                    <td><%= event[i].event_title %></td>
+                    <td><%= event[i].event_schedule %></td>
+                    <!-- <td><%= event[i].event_desc %></td> -->
+                    <td><a href="upload/<%= event[i].event_desc %>"><%= event[i].event_desc %></a></td>
+                    
+                    <td><%= event[i].event_program %></td>
+                    
+                    <td><%= event[i].event_post_date %></td>
+               
+                    <td> <a href="/events_delete?id=<%= event[i]._id %>"> 
+                      <i class="fa fa-trash" style="color: red; font-size:20px;" aria-hidden="true"></i></a>
+                      <a href="/edit_event?id=<%= event[i]._id %>"> 
+                        <i class="fa fa-pencil-square" style="color: blue; font-size:20px;" aria-hidden="true"></i></a>
+                    </td>
+                  </tr>
+                  <% 
+                }
+              }
+            else
+            {
+            %>
+            <tr>
+              <td colspan="6"> Events Not found</td>
+            </tr>
+            <% } %>
+     
+          </table>
+
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <ul class="pagination">
+        <% for(let j = 1; j <= totalpage; j++ ){ %>
+        <li>  <a href="?page=<%= j %>"><%= j %></a></li>
+        <%
+        } %>
+      </ul>
+    </div>
+    

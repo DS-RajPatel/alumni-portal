@@ -1,0 +1,65 @@
+table :-
+
+User master :-
+					Email Ya Enrollment 
+					password
+					branch
+					Passing Year
+					facebook_id
+					insta_id
+					location
+					current job profession
+					mobile no
+					skill
+
+					
+					
+event master :- 
+					event pic
+					event name 
+					event date
+					event place
+					event news
+
+
+						
+notice master :- 
+					
+					notice name 
+					notice date
+					notice place
+					notice news
+
+add alumni :-
+					
+					name
+					branch
+					photo
+					Details
+					
+
+article 
+
+			title
+			author
+			body
+
+
+
+
+
+
+
+
+
+
+login > community 
+
+login > event check > Event login
+ 
+login > notice check
+
+
+
+
+

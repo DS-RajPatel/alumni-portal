@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/forgot.css">
+    <title>Forgot Password</title>
+</head>
+<body>
+    <h1>SRKI ALUMNI PORTAL</h1>
+    
+    <form action="/authe" method="post">
+    <div class="card">
+        <span class="card__title">Password assistance</span>
+        <p class="card__content">Enter the email address Register with your SRKI.
+        </p>
+        <div class="card__form">
+            <input placeholder="Your Email" type="text" name="email">
+            <input type="submit" value="Forget Password" class="sign-up" id="button">
+            
+        </div>
+        <% if(typeof msg1 !=='undefined') { %>
+            <p style="color: rgb(17, 156, 22); font-size: large;">
+              <%= msg1 %>
+            </p>
+          <% } %>
+        <% if(typeof msg !=='undefined') { %>
+            <p style="color: red; font-size: large;">
+              <%= msg %>
+            </p>
+          <% } %>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,78 @@
+ <!-- header file add -->
+ <%- include('../header'); -%>
+
+ 
+<link rel="stylesheet" href="css/event.css">
+     <!-- PROJECT DETAIL -->
+     <section class="blog section-padding">
+        <div class="container">
+             <div class="row">
+
+                  <div class="col-lg-12 col-12 py-5 mt-5 mb-3 text-center">
+
+                    <h1 class="mb-4" data-aos="fade-up">Event In SRKI</h1>
+                  </div>
+
+        </div>
+        </div>
+   </section>
+<section>
+  
+  
+
+
+    
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+
+      <!-- /.box-header -->
+      <div class="box-body table-responsive no-padding">
+
+        
+          <%
+          if(event.length > 0){
+              for(let i=0;i<event.length;i++){
+                %> 
+               
+
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 my-1">
+  <div class="card">
+  <div class="card-details">
+    <p class="text-title"><%= event[i].event_title %></p>
+    <p class="text-body"><%= event[i].event_schedule %></p>
+    <p class="text-body"><a href="upload/<%= event[i].event_desc %>"><%= event[i].event_desc %></a></p>
+    
+    <p class="text-body"><%= event[i].event_program %></p>
+
+  </div>
+  <button class="card-button"><%= event[i].event_post_date %></button>
+</div>
+
+</div> 
+
+
+</div> 
+                <% 
+              }
+            }
+          else
+          {
+          %>
+         <div> <p>No Event Found</p></div>
+        
+          <% } %>
+   
+      
+
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+  </div>
+  
+
+
+          <!-- add footer file -->
+          <%- include('../footer'); -%>

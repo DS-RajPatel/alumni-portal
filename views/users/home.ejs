@@ -1,0 +1,161 @@
+<!-- header file add -->
+<%- include('../header'); -%>
+<!-- HERO -->
+<link rel="stylesheet" href="css/pagination.css">
+<link rel="stylesheet" href="css/event.css">
+<section class="hero hero-bg d-flex justify-content-center align-items-center">
+     <div class="container">
+          <div class="row">
+               <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
+                    <div class="hero-text">
+                         <h1 class="text-white" data-aos="fade-up">Nobody is bothered about an institution more than its
+                              alumni.</h1>
+
+                         <!-- <a href="/login" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Login!!</a> -->
+
+                         <strong class="d-block py-3 pl-5 text-white" data-aos="fade-up" data-aos-delay="200"><i
+                                   class="fas fa-address-book"></i> +91 73598-57317</strong>
+                    </div>
+               </div>
+
+               <div class="col-lg-6 col-12">
+                    <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
+
+                         <img src="images/images1.jpg"  class="img-fluid rounded-start" alt="working girl">
+                    </div>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="about section-padding pb-0" id="about">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-lg-7 mx-auto col-md-10 col-12" >
+                    <div class="about-info" style="border: 3px solid green; width: 700px" >
+                         <i class='fas fa-bullhorn' style="color: red; size: 72px;"></i>
+                         <h2 >Latest News</h2>
+                    </div>
+                    
+                          
+ <div class="row">
+    
+  
+  
+   
+     <% if(news.length > 0){
+         for(let i=0;i<news.length;i++){
+           %> 
+           <div class="col-lg-12 col-md-2 col-sm-5 col-xs-12 my-1">
+
+           <div class="card">
+     
+ <div class="card-details">
+     <div class="col-md-4">
+          <a href="upload/<%= news[i].News_images %>">
+          <img style="width:250px;" src="upload/<%= news[i].News_images %>" alt="<%= news[i].News_images %>">
+     </a>
+     </div>
+
+   <p class="text-title">News Title :-<br>
+
+      <%= news[i].News_title %></p>
+   <p class="text-body">News details :-<br>
+     <%= news[i].News_details %></p>
+
+    <p class="text-body">News Post Date :-<br><%= news[i].News_post_date %></p>
+   
+  
+
+ </div>
+
+</div>
+</div>
+`
+<% 
+}
+}
+else
+{
+%>
+
+<div class="row">
+
+     <div class="col-lg-6 col-6 text-center" style=" margin: auto;
+     width: 50%;
+     border: 3px solid rgb(255, 107, 77);
+     padding: 10px;">
+   
+       <h3>No News Found</h3>
+     </div>
+   
+   </div>
+
+<% } %> 
+
+
+</div>
+
+
+<ul class="pagination">
+     <% for(let j = 1; j <= totalpage; j++ ){ %>
+     <li>  <a href="?page=<%= j %>"><%= j %></a></li>
+     <%
+     } %>
+   </ul>
+</section>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+     </div>
+     </div>
+     </div>
+</section>
+
+
+<!-- TESTIMONIAL -->
+<section class="testimonial section-padding">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-lg-6 col-md-5 col-12">
+                    <div class="contact-image" data-aos="fade-up">
+
+                         <img src="images/female-avatar.png" class="img-fluid" alt="website">
+                    </div>
+               </div>
+
+               <div class="col-lg-6 col-md-7 col-12">
+                    <h4 class="my-5 pt-3" data-aos="fade-up" data-aos-delay="100">PRINCIPAL'S MESSAGE</h4>
+
+                    <div class="quote" data-aos="fade-up" data-aos-delay="200"></div>
+
+                    <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Dear Parents, students and well-wishers of
+                         the SRKI family- my prayerful greetings to all of you. First and foremost I would like to
+                         express my deep sentiments of gratitude to every one of you for your constant support, love and
+                         concern towards the college which enables and encourages us to strive hard to carry forward the
+                         mission of spreading value-based knowledge to one and all.</h2>
+
+                    <p data-aos="fade-up" data-aos-delay="400">
+                         <strong>Dr. Chaulami Desai</strong>
+
+                         <span class="mx-1">/</span>
+
+                         <small>Principal Of SRKI</small>
+                    </p>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- add footer file -->
+
+<%- include('../footer'); -%>

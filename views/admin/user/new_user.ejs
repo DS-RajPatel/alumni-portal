@@ -1,0 +1,91 @@
+<%- include('../header'); -%>
+<%- include('../sidebar'); -%>
+ 
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+    User Login Details
+      
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
+
+
+
+
+
+<!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" action="/new_user" method="post" enctype="multipart/form-data">
+              <div class="box-body">
+
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="input" name="img1">
+
+                
+                </div>
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+
+                <strong style="margin:20%; font-size: xx-large; " >OR</strong><br>
+                <br>
+                <strong style="margin:05%; color: red;">If You Have Only Single Alumni So Insert Here.. </strong>
+
+                <form role="form" action="/user_new" method="post">
+                <div class="form-group">
+                  <label for="InputEmail">Email address</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="">
+                </div>
+
+                   <div class="form-group">
+                  <label for="exampleInputEnroll">Enroll no</label>
+                  <input type="text" class="form-control" id="exampleInputEnroll" placeholder="Enter Your Enroll Number " name="Enroll" value="">
+                </div>
+                
+
+                
+ <div class="form-group">
+  <label for="inputprogram">Program</label>
+   <select class="form-control" id="inputprogram" name="program">
+    
+     
+      
+   
+    <%
+    for(let i=0;i<program1.length;i++){
+     %> 
+   <option>
+     <%= program1[i].program_name %>
+   </option>
+<% }%>
+</select>
+  
+</div>
+ 
+                <div class="form-group">
+                  <label for="InputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" value="">
+                </div>
+              
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+              </div>
+              <!-- /.box-body -->
+
+              

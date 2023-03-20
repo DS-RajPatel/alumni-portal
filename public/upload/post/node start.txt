@@ -1,0 +1,3 @@
+npm init
+npm install express mysql body-parser ejs nodemon
+npm install nodemon -D

@@ -1,0 +1,93 @@
+<%- include('../header'); -%>
+<%- include('../sidebar'); -%>
+<link rel="stylesheet" href="css/pagination.css">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      News
+      <small>List Of News</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+
+          <table class="table table-hover">
+            <tr>
+              <tr> 
+                <form action="#" method="get" class="sidebar-form">
+         <div class="input-group" style="margin-left: 15px">
+           <input type="text" name="Search" placeholder="Search...">
+           
+           <input type="submit" value="Search" id="search-btn" class="btn btn-flat">
+                 
+                 </button>
+          
+         </div>
+       </form>
+             </tr>
+            </tr>
+           <tr>
+            <th></th>
+              <th>News Title</th>
+              <th>News Details</th>
+                 <th>News Image</th>
+                  <th>News Post Date</th>
+                  <th>Action</th>
+            </tr>
+            
+            <%
+              if(news.length > 0){
+                  for(let i=0;i<news.length;i++){
+                    %> 
+                    <tr>
+                      <td><%= [i+1] %></td>
+                      <td><%= news[i].News_title %></td>
+                      <td><%= news[i].News_details %></td>
+                      <td>
+                        <img src="upload/<%= news[i].News_images %>" alt="" height="150px">
+                      </td>
+                      <td><%= news[i].News_post_date %></td>
+                 
+                      <td>
+                         <a href="/news_delete?id=<%= news[i]._id %>">
+                        <i class="fa fa-trash" style="color: red; font-size:20px;" aria-hidden="true"></i></a>
+                        <a href="/edit_news_get?id=<%= news[i]._id %>">
+                          <i class="fa fa-pencil-square" style="color: blue; font-size:20px;" aria-hidden="true"></i></a>
+                      </td>
+                    </tr>
+                    <% 
+                  }
+                }
+              else
+              {
+              %>
+              <tr>
+                <td colspan="4"> News Not found</td>
+              </tr>
+              <% } %>
+       
+          </table>
+
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <ul class="pagination">
+        <% for(let j = 1; j <= totalpage; j++ ){ %>
+        <li>  <a href="?page=<%= j %>"><%= j %></a></li>
+        <%
+        } %>
+      </ul>
+    </div>
+

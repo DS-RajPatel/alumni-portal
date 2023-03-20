@@ -1,0 +1,89 @@
+ <!-- header file add -->
+ <%- include('../header'); -%>
+
+ 
+<link rel="stylesheet" href="css/event.css">
+
+<link rel="stylesheet" href="css/pagination.css">
+     <!-- PROJECT DETAIL -->
+     <section class="blog section-padding">
+    
+             <div class="row">
+
+                  <div class="col-lg-12 col-12 text-center" style="border: 3px solid green;">
+
+                    <h1>Event In SRKI</h1>
+                  </div>
+
+        </div>
+
+   </section>
+<section>
+
+ <div class="row">
+    
+  
+    
+   
+        <% if(event.length > 0){
+            for(let i=0;i<event.length;i++){
+              %> 
+              <div class="col-lg-3 col-md-2 col-sm-5 col-xs-12 my-1">
+
+              <div class="card1">
+        
+    <div class="card1-details">
+      <p class="text-title">Event Title :-<br>
+
+         <%= event[i].event_title %></p>
+      <p class="text-body">Event Schedule :-<br>
+        <%= event[i].event_schedule %></p>
+      <p class="text-body">Event Program :-<br><%= event[i].event_program %></p>
+       <p class="text-body">Event Post Date :-<br><%= event[i].event_post_date %></p>
+      
+     
+
+    </div>
+    <button class="card1-button"><a href="upload/<%= event[i].event_desc %>" target="_blank">Read More.</a></button>
+  </div>
+</div>
+`
+<% 
+}
+}
+else
+{
+%>
+<div class="row">
+
+  <div class="col-lg-6 col-6 text-center" style=" margin: auto;
+  width: 50%;
+  border: 3px solid rgb(255, 107, 77);
+  padding: 10px;">
+
+    <h3>No Event Found</h3>
+  </div>
+
+</div>
+
+<% } %>
+ 
+  
+</div>
+
+
+
+  <ul class="pagination">
+    <% for(let j = 1; j <= totalpage; j++ ){ %>
+    <li>  <a href="?page=<%= j %>"><%= j %></a></li>
+    <%
+    } %>
+  </ul>
+
+<br>
+<br>
+
+<%- include('../footer'); -%>
+ 
+        
+        

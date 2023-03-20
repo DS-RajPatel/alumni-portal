@@ -1,0 +1,92 @@
+<%- include('../header'); -%>
+<%- include('../sidebar'); -%>
+ 
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+     New Event Add
+      
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
+
+
+
+</br>
+
+
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Event Details</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" action="/add_event" method="post" enctype="multipart/form-data"> 
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="inputevent" class="col-sm-2 control-label" >Event Title</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputevent" placeholder="Event Title" name="event" required = 'required'>
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <label for="inputEventdesc" class="col-sm-2 control-label" >Event Descripition</label>
+
+                  <div class="col-sm-10">
+                        
+                  <input type="file" id="inputeventban" name="img" required = 'required'>
+                  </div>
+                
+                </div>
+
+                    <div class="form-group">
+                  <label for="inputEventSche" class="col-sm-2 control-label">Event Schedule</label>
+
+                  <div class="col-sm-10">
+                    <!-- <input type="text" class="form-control" id="inputEventSche" placeholder="Event Schedule" name="EventSche" required = 'required'> -->
+                    <input type="date" name="EventSche" id="inputEventSche">
+                  </div>
+
+                </div>
+                
+ <div class="form-group">
+                  <label for="inputprogram" class="col-sm-2 control-label" >Program</label>
+<div class="col-sm-10">
+                   <select class="form-control" id="inputprogram" name="program">
+                    
+                     
+                      
+                   
+                    <%
+                    for(let i=0;i<program1.length;i++){
+                     %> 
+                   <option>
+                     <%= program1[i].program_name %>
+                   </option>
+<% }%>
+        </select>
+                  </div>
+                </div>
+                  </div>                           
+              </div>
+              <!-- /.box-body -->
+            
+              <div class="box-footer">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-info pull-center">Event Add</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+  

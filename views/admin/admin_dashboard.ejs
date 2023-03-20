@@ -1,0 +1,121 @@
+<%- include('header'); -%>
+<%- include('sidebar'); -%>
+ 
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small>Control panel</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <% if(event.length > 0){
+
+                  %> 
+              <h3><%= event.length %></h3>
+              <p>Events In SRKI</p>          
+<% 
+}
+else
+{
+} %>
+ 
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <% if(alm.length > 0){
+
+                %> 
+            <h3><%= alm.length %></h3>
+              
+
+              <p>Total Number Of Alumnus </p>
+              <% 
+}
+else
+{
+} %>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <% if(admin.length > 0){
+
+                %> 
+            <h3><%= admin.length %></h3>
+              
+              <p>Total Number Of Admin</p>
+              <% 
+            }
+            else
+            {
+            } %>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <% if(news.length > 0){
+
+                %> 
+            <h3><%= news.length %></h3>
+              <p>News</p>
+              <% 
+            }
+            else
+            {
+            } %>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+           
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+      <!-- Main row -->
+      
+    
+   
+    
+ 

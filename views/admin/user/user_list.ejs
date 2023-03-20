@@ -1,0 +1,92 @@
+<%- include('../header'); -%>
+<%- include('../sidebar'); -%>
+ 
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1 style="margin-bottom: 10px;">
+         User Login Details
+      <small>List Of Users login Details</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
+
+
+
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+
+          <table class="table table-hover">
+            <tr> 
+              <form action="#" method="get" class="sidebar-form">
+       <div class="input-group" style="margin-left: 15px">
+         <input type="text" name="Search" placeholder="Search...">
+         
+         <input type="submit" value="Search" id="search-btn" class="btn btn-flat">
+               
+               </button>
+        
+       </div>
+     </form>
+           </tr>
+            <tr>
+              <th></th>
+              <th>Email Of Users</th>
+              <th>Enroll Of Users</th>
+              <th>User Program</th>    
+              <th>Password</th>
+                  <th>Delete</th>
+                  <th>Edit</th>
+            </tr>
+              <%
+            if(user.length > 0){
+                for(let i=0;i<user.length;i++){
+                  %> 
+                  <tr>
+                    <td><%= [i+1] %></td>
+                    <td><%= user[i].user_email %></td>
+                    <td><%= user[i].user_enroll %></td>
+                    <td><%= user[i].user_program %></td>
+                    <td><%= user[i].user_password %></td>
+                   
+                    
+                    <td> <a href="/user_delete?id=<%= user[i]._id %>"> 
+                      <i class="fa fa-trash" style="color: red; font-size:20px;" aria-hidden="true"></i></a></td>
+                      <td><a href="/user_edit?id=<%= user[i]._id %>"> 
+                        <i class="fa fa-pencil-square" style="color: blue; font-size:20px;" aria-hidden="true"></i></a></td>
+                  </tr>
+                  <% 
+                }
+              }
+            else
+            {
+            %>
+            <tr>
+              <td colspan="3"> User Not found</td>
+            </tr>
+            <% } %>
+     
+          </table>
+
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <link rel="stylesheet" href="css/pagination.css"> <ul class="pagination">
+        <% for(let j = 1; j <= totalpage; j++ ){ %>
+        <li>  <a href="?page=<%= j %>"><%= j %></a></li>
+        <%
+        } %>
+      </ul>
+    </div>
+    

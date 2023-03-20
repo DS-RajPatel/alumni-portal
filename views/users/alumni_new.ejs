@@ -1,0 +1,83 @@
+<%- include('../header'); -%>
+<link rel="stylesheet" href="css/profile.css">
+<div class="card">
+    <div class="card-header">
+     <div class="text-header">Alumni Information</div>
+    </div>
+    <div class="card-body">
+
+      
+      <form action="/alumni_bio_new" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <input class="form-control" name="uid" id="uid" type="hidden" >
+
+
+          <label for="avtar">Alumni Avatar:</label>
+         
+          <input type="file" class="form-control" name="avatar">
+        </div>
+        <div class="form-group">
+          <input class="form-control" name="id" id="id" type="hidden" >
+      <input class="form-control" name="email" id="email" type="hidden" value="<%= data.user_email %>">
+        </div>
+        <div class="form-group">
+          <label for="contact">Name :</label>
+          <input required="" class="form-control" name="name" id="name" type="text" >
+         
+        </div>
+
+
+        <div class="form-group">
+          <label for="contact">contact no:</label>
+          <input required="" class="form-control" name="contact" id="contact" type="text">
+         
+        </div>
+
+        <div class="form-group">
+            <label for="batch">Batch : (Pass Out Year)</label>
+            <input  required="" class="form-control" name="batch" id="batch" type="number" placeholder="YYYY" min="1999" max="2050">
+            <script>
+               document.querySelector("input[type=number]")
+               .oninput = e => console.log(new Date(e.target.valueAsNumber, 0, 1))
+            </script>
+          </div>
+          <div class="form-group">
+            <label for="Current_Location">Current Location:</label>
+            <input required="" class="form-control" name="Current_Location" id="Current_Location" type="text">
+           
+          </div>
+          <div class="form-group">
+            <label for="Current_jobprofile">Current Job Profile:</label>
+            <input required="" class="form-control" name="Current_jobprofile" id="Current_jobprofile" type="text">
+           
+          </div>
+          <div class="form-group">
+            <label for="Insta_id">Instagram ID :</label>
+            <input class="form-control" name="Insta_id" id="Insta_id" type="text">
+           
+          </div>
+          <div class="form-group">
+            <label for="Git_id">Github ID :</label>
+            <input class="form-control" name="Git_id" id="Git_id" type="text"> 
+          </div>
+       
+       <input type="submit" class="btn" value="submit">    </form>
+
+       `
+
+ 
+  
+    </div>
+  </div>
+  
+
+        
+  <% if(typeof msg !=='undefined') { %>
+    <div class="alert alert-danger">
+      <%= msg %>
+    </div>
+  <% } %>
+    </br>
+        </div>
+      
+<%- include('../footer'); -%>

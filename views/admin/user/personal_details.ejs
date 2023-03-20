@@ -1,0 +1,100 @@
+<%- include('../header'); -%>
+<%- include('../sidebar'); -%>
+ 
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Alumni Personal Details
+     <small>List Of User Details</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
+
+
+
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+
+          <table class="table table-hover">
+            <tr> 
+              <form action="#" method="get" class="sidebar-form">
+       <div class="input-group" style="margin-left: 15px">
+         <input type="text" name="Search" placeholder="Search...">
+         
+         <input type="submit" value="Search" id="search-btn" class="btn btn-flat">
+               
+               </button>
+        
+       </div>
+     </form>
+           </tr>
+            <tr>
+              <th></th>
+              <th>Alumni Avtar</th>
+              <th>Alumni Name</th>
+              <th>Alumni Email</th>
+              <th>Alumni Contact No</th>
+              <th>Alumni Batch</th>
+              <th>Alumni Current Location</th>
+              <th>Alumni Job Profile</th>
+              <th>Alumni Insta Profile</th>
+              <th>Alumni GIT Profile</th>
+            </tr>
+            <%
+            if(alm.length > 0){
+                for(let i=0;i<alm.length;i++){
+                  %> 
+            <tr>
+              <td><%= [i+1] %></td>
+
+              <td> <img src="upload/post/<%= alm[i].alm_avatar %>" height="54" style="border-radius: 50%;"></td>
+              <td><%= alm[i].alm_name %></td>
+              <td><%= alm[i].alm_email %></td>
+              <td><%= alm[i].alm_contact_no %></td>
+              <td><%= alm[i].alummi_batch %></td>
+              <td><%= alm[i].alm_current_location %></td>
+              <td><%= alm[i].alm_current_jobprofile %></td> 
+              <td><a href="<%= alm[i].alm_insta_id %>" target="_blank"><%= alm[i].alm_insta_id %></a></td>
+              <td><a href="<%= alm[i].alm_git_id %>" target="_blank"><%= alm[i].alm_git_id %></a></td>
+
+              <td> <a href="/events_delete?id=<%= alm[i]._id %>"> 
+                <i class="fa fa-trash" style="color: red; font-size:20px;" aria-hidden="true"></i></a>
+                </td>
+              
+            </tr>
+            <% 
+          }
+        }
+      else
+      {
+      %>
+      <tr>
+        <td colspan="6"> ALumni Not found</td>
+      </tr>
+      <% } %>
+
+          </table>
+
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <link rel="stylesheet" href="css/pagination.css"> <ul class="pagination">
+        <% for(let j = 1; j <= totalpage; j++ ){ %>
+        <li>  <a href="?page=<%= j %>"><%= j %></a></li>
+        <%
+        } %>
+      </ul>
+    </div>
+    
